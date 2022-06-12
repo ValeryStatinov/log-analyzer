@@ -1,6 +1,7 @@
 import './App.css'
 
-import React from 'react'
+import { bluetoothClient } from 'bluetooth/connect'
+import React, { useEffect } from 'react'
 
 import logo from './logo.svg'
 
@@ -15,6 +16,9 @@ function App(): JSX.Element {
         <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
           Learn React
         </a>
+        <button onClick={(): Promise<void> => bluetoothClient.connect()}>CONNECT</button>
+        <button onClick={(): Promise<void> => bluetoothClient.startPingDevice()}>START PING</button>
+        <button onClick={(): void => bluetoothClient.stopPingDevice()}>STOP PING</button>
       </header>
     </div>
   )
